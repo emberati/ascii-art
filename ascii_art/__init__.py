@@ -61,5 +61,3 @@ def image_to_ascii(image, width=None, height=None, chars=" .',:;+*?%S#@", font=N
                 ascii_art += "\n"
 
     return ascii_art
-
-print('ASCII art imported!'*3)
