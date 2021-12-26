@@ -24,7 +24,7 @@ def main() -> int:
         "--chars", type=str, default=" .',:;+*?%S#@", help="String containing characters to be seen in ASCII art"
     )
     parser.add_argument("--font", type=str, help="Font for calculating the character weights")
-    parser.add_argument("--save", type=str, help="Save or not ascii output text", default='default', nargs='?')
+    parser.add_argument("--save", type=str, help="Save ascii output text, near input file (if output file not specified)", default='default', nargs='?')
     parser.add_argument("--invert", action="store_true", help="Whether the ASCII output color is inverted")
     parser.add_argument(
         "--normalize", action="store_true", help="Whether the weights of the provided ASCII characters are normalized"
@@ -44,15 +44,7 @@ def main() -> int:
     else:
         args.save = image.filename[:image.filename.rfind('.'):] + '.txt'
         save(args.save, ascii_art)
-    '''
-    save_path = None
-    if args.save == 'default':
-        save_path = image.filename[:filename.rfind('.'):] + '.txt'
-    elif args.save:
-        save_path = args.save
-    if save_path:
-        save(save_path, ascii_art)
-    '''
+
     # Output to stdout
     print(ascii_art)
 
